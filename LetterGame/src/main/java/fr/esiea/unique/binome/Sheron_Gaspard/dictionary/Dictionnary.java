@@ -8,9 +8,11 @@ import java.io.InputStream;
 
 import java.io.InputStreamReader;
 
+import fr.esiea.unique.binome.name.dictionary.IDictionary;
 
 
-public class Dico implements IDictionary {
+
+public class Dictionnary implements IDictionary {
 	
 	//ouverture fichier 
 
@@ -44,8 +46,6 @@ public class Dico implements IDictionary {
 
 //test mot
 	
-	@Override
-
 	public String isWord(String motTest, BufferedReader reader) throws IOException {
 
 		String Line;
@@ -69,4 +69,9 @@ public class Dico implements IDictionary {
 
 	}
 //++++
+
+	public boolean isWord(String word) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

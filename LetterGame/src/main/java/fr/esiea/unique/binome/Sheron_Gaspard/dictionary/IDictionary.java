@@ -1,4 +1,4 @@
-package fr.esiea.unique.binome.name.dictionary;
+
 
 /**
  * Created on 16/01/17.

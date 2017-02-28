@@ -1,4 +1,4 @@
-package fr.esiea.unique.binome.name.dictionary;
+package src.test.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary;
 
 import org.junit.Before;
 

@@ -8,12 +8,12 @@ public class PotCommun {
 	public void Listlettre(){
 	
 		System.out.println("Les lettres présente sont :");
-		for (char l: this.al) {
+		for (char l: this.Listlettre()) {
 			System.out.println( l+";");
 		}
 	}
 	
-	public ajouterlettre(char c){
+	public void ajouterlettre(char c){
 		
 		listchar.add(c);
 		
