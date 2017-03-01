@@ -1,6 +1,7 @@
 package src.main.java.fr.esiea.unique.binome.Sheron_Gaspard.Game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class PotCommun {
@@ -8,6 +9,8 @@ public class PotCommun {
 	private ArrayList<Character> listPotCommun ;
 	
 	public static void main(String[] args){
+		
+		//System.out.println(randomChar());
 	
 	}
 	
@@ -59,6 +62,11 @@ public class PotCommun {
 		
 	}
 	
+	public static char randomChar(){
+		Random r = new Random();
+		char c = (char)(r.nextInt(26) + 'a');
+		return c;
+	}
 	
 	
 }
