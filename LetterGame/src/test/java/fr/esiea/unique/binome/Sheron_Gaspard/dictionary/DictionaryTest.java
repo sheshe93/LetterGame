@@ -1,7 +1,5 @@
 package src.test.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary;
 
-import org.junit.Before;
-
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 

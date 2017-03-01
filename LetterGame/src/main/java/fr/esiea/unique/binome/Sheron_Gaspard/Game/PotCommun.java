@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class PotCommun {
 
 	private ArrayList listchar = new ArrayList();
