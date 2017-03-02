@@ -10,38 +10,40 @@ public class PotCommun {
 	
 	public static void main(String[] args){
 		
-		//System.out.println(randomChar());
+		
 	
 	}
-	
+	public PotCommun(){
+		this.listPotCommun=new ArrayList<Character>();
+	}
 	public void addCharacter(char c){
 		if((int)c==0){
 			System.err.println("pas de character");
 		}else{
-			listPotCommun.add(c);
+			this.listPotCommun.add(c);
 		}
 	}
 	
 	public void deleteCharacter(String word){
 		
 		for( char c : word.toCharArray()){
-			for(int i=0;i<listPotCommun.size();i++){
+			for(int i=0;i<this.listPotCommun.size();i++){
 				if(listPotCommun.get(i)==c){
-					listPotCommun.remove(i);
+					this.listPotCommun.remove(i);
 				}
 			}
 		}
 	}
 	
 	public ArrayList<Character> getlistPotCommun(){
-		return listPotCommun;
+		return this.listPotCommun;
 	}
 	
 	public boolean ResetPotCommun(){
-		if(listPotCommun.isEmpty()){
+		if(this.listPotCommun.isEmpty()){
 		return true;
 		}else{
-			listPotCommun.clear();
+			this.listPotCommun.clear();
 			return true;
 		}
 
@@ -52,7 +54,7 @@ public class PotCommun {
 	boolean test=true;
 		
 	for(char c: word.toCharArray()){
-		if(listPotCommun.contains(c)){
+		if(this.listPotCommun.contains(c)){
 			return true;
 		}else{
 			test=false;
@@ -62,11 +64,7 @@ public class PotCommun {
 		
 	}
 	
-	public static char randomChar(){
-		Random r = new Random();
-		char c = (char)(r.nextInt(26) + 'a');
-		return c;
-	}
+
 	
 	
 }
