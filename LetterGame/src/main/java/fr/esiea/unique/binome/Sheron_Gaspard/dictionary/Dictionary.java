@@ -1,70 +1,64 @@
 package src.main.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary;
 
-
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-
-import java.io.InputStream;
-
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+public class Dictionary {
+	private String path;
 
-
-public class Dictionary implements IDictionary {
-	
-	private ArrayList<String> listDictionary;
-	
-	public Dictionary(){
-		listDictionary = new ArrayList<String>();
-		
-		
-			File file= new File("/Users/mac/git/TP_4A_2017_Letter_Game/LetterGame/src/main/resources/dico.txt");
-
-			 try {
-		        	BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));	
-		        	String line = null;
-					while ((line = r.readLine()) != null)
-		            {
-						if(line.length()>1){
-							listDictionary.add(line);
-						}
-						         
-		            }
-				
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		    }
-	/*
-	public static void main(String[] args){
-		
-	    Dictionary d = new Dictionary();
-		if(d.isWord("maman")){
-			System.out.println("maman existe");
-		}
-		
-		if(!d.isWord("mamana")){
-			System.out.println("pas comme mamana");
-		}
-		
-
+	public Dictionary() {
+		this.path = System.getProperty("user.dir") + "/LetterGame/src/main/resources/dico.txt";
 	}
-	*/
 
-//test mot
+	public Dictionary(String path) {
+		this.path = path;
+	}
 
-	public boolean isWord(String word) {
-		// TODO Auto-generated method stub
-		
-		if(listDictionary.contains(word)){
-			return true;
-		}else{
-			
-		return false;
+	/**
+	 * Permet de savoir si ce mot est dans le dictionnaire
+	 * 
+	 * @param mot
+	 * @return
+	 */
+	public boolean isWord(String mot) {
+		try {
+			File f = new File(path);
+			BufferedReader bfReader = new BufferedReader(new FileReader(f));
+			String line;
+			while ((line = bfReader.readLine()) != null) {
+				if (line.contains(mot) && line.equals(mot)) {
+					bfReader.close();
+					return true;
+				}
+			}
+			bfReader.close();
+		} catch (IOException e) {
+			System.out.println("Erreur en cherchant le mot dans le dico");
+			e.printStackTrace();
 		}
+		return false;
+	}
+
+	public ArrayList<String> getMotsDico() {
+		File f = new File(path);
+		BufferedReader bfReader;
+		ArrayList<String> motsDico = new ArrayList<String>();
+		try {
+			bfReader = new BufferedReader(new FileReader(f));
+			String line;
+			while ((line = bfReader.readLine()) != null) {
+				motsDico.add(line);
+			}
+			bfReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return motsDico;
 	}
 }

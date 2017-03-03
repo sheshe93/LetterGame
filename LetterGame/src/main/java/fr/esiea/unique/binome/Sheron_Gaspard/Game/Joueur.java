@@ -30,5 +30,12 @@ public class Joueur {
 		motJoueur.remove(word);
 	}
 	
+	public Boolean isMotAlreadyTyped(String word){
+		if(motJoueur.contains(word.trim()))
+			return true;
+		else 
+			return false;
+	}
+	
 	
 }
