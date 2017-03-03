@@ -1,11 +1,12 @@
 package src.test.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary;
 
 
-import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Test;
 
+import src.main.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary.Dictionary;
 import src.main.java.fr.esiea.unique.binome.Sheron_Gaspard.dictionary.IDictionary;
 
 /**
@@ -17,12 +18,13 @@ public class DictionaryTest {
 
     @Before
     public void setup() {
-        //TODO
+        dictionary= new Dictionary();
     }
 
-    @SuppressWarnings("deprecation")
+	
+	@Test
 	public void testIsWord() {
-        assertTrue(dictionary.isWord("maman"));
+		assertTrue(dictionary.isWord("maman"));
         assertFalse(dictionary.isWord("namam"));
     }
 }

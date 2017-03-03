@@ -32,7 +32,28 @@ public class PotCommunTest {
 		assertTrue(pot.getlistPotCommun().isEmpty());
 	}
 	
+	@Test
+	public void testResetPotCommun(){
+		pot.addCharacter('a');
+		pot.addCharacter('b');
+		pot.addCharacter('c');
+		pot.addCharacter('d');
+		pot.ResetPotCommun();
+		assertTrue(pot.getlistPotCommun().isEmpty());
+	}
 	
+	@Test
+	public void characterInPotCommun(){
+		pot.addCharacter('d');
+		pot.addCharacter('p');
+		pot.addCharacter('a');
+		pot.addCharacter('p');
+		pot.addCharacter('a');
+		assertTrue(pot.characterInPotCommun("papa"));
+		assertFalse(pot.characterInPotCommun("papam"));
+		
+		
+	}
 	
 	
 	

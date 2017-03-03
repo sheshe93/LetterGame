@@ -49,12 +49,14 @@ public class PotCommun {
 	}
 
 	public boolean characterInPotCommun(String word) {
+		boolean test = false;
 		for (char c : word.toCharArray()) {
 			if (this.listPotCommun.contains(c))
-				return true;
+				test=true;
+				
 			else
-				return false;
+				test=false;
 		}
-		return false;
+		return test;
 	}
 }

@@ -25,7 +25,7 @@ public class Game {
 
 		while (!saisie.equals("q")) {
 
-			System.out.println("Bienvenue, Que voulez vous faire ? (a pour aide)\n");
+			System.out.println("Bienvenue, Que voulez vous faire ? (a pour aide / q pour quiter)\n");
 			Scanner scan = new Scanner(System.in);
 			saisie = scan.next();
 
@@ -40,6 +40,8 @@ public class Game {
 				break;
 
 			case "l": // lancer partie
+				
+				
 				startGame();
 
 				break;
@@ -110,12 +112,15 @@ public class Game {
 
 			OnChoixJoueur(nextPlayer, otherPlayer);
 			System.out.println(J1.toString() + " a " + J1.motJoueur.size() + " points.");
-			System.out.println(J2.toString() + " a " + J2.motJoueur.size() + " points.\n");
+			System.out.println("Les mots de "+J1.toString() + " sont : " + J1.getMotJoueur().toString()+"\n");
+			System.out.println(J2.toString() + " a " + J2.motJoueur.size() + " points.");
+			System.out.println("Les mots de "+J2.toString() + " sont : " + J2.getMotJoueur().toString()+"\n");
+			
 			Joueur tempPlayer = nextPlayer;
 			nextPlayer = otherPlayer;
 			otherPlayer = tempPlayer;
 			
-			if(J1.motJoueur.size() >= 3 || J2.motJoueur.size() >= 3)
+			if(J1.motJoueur.size() >= 10 || J2.motJoueur.size() >= 10)
 				someoneWon = true;
 		}
 		System.out.println("Féliciations " + otherPlayer.toString() + ", vous avez gagné !!");
@@ -177,8 +182,8 @@ public class Game {
 				if (PC.characterInPotCommun(addedCharacters) && d.isWord(ancientWord + addedCharacters)) {
 					player.addMotJoueur(ancientWord+addedCharacters);
 					PC.deleteCharacter(addedCharacters);
-					System.out.println("Bravo !");
 					PC.addCharacter(randomChar());
+					System.out.println("Bravo !");
 				} else {
 					System.out.println("Le mot n'est pas dans le dictionnaire ou les lettres que vous avez tenté "
 							+ "d'ajouter n'étaient pas dans le pot commun.");
@@ -187,8 +192,21 @@ public class Game {
 				System.out.println("Le mot n'a pas été entré précédemment");
 			}
 			break;
+			
 		case "4":
 			break;
+		/*	case "SheatCode":
+			player.addMotJoueur("ok");
+			player.addMotJoueur("okazd");
+			player.addMotJoueur("okdazaf");
+			player.addMotJoueur("okdazd");
+			player.addMotJoueur("offflk");
+			player.addMotJoueur("okggbg");
+			player.addMotJoueur("okgpg");
+			player.addMotJoueur("okggg");
+			player.addMotJoueur("ogggok");
+			break;
+		*/	
 		default:
 			break;
 		}
